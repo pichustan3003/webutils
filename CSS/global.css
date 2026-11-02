@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+}
+
+* {color: white; text-align: center; font-family: "Unica One";}
+
+#mainTitle {
+    display: block; 
+    text-align: center; 
+    font-size: 56pt;
+    animation-name: fadeMain;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+}
+
+.lateFade {
+    animation-name: fadeMain;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in;
+    opacity: 0;
+    filter: blur(10px);
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeMain {
+    from {opacity: 0; filter: blur(10px);}
+    to {opacity: 1; filter: blur(0px);}
+}
+
+nav ul {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul > div {
+    flex: 1;
+    position: relative;
+}
+
+nav ul div li{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navItem:hover:not(:has(div:hover)) {
+    background-color: #3b3d3b;
+}
+
+#clock {font-size: 200pt; margin: 0;}
+
+#day {margin: 0;}

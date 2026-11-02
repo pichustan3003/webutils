@@ -1,0 +1,8 @@
+[
+    {
+        "name":"Clock",
+        "description":"Just a Clock, nothing more",
+        "image":"Clock.png",
+        "path":"clock.html"
+    }
+]

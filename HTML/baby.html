@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main>
+        <h1 id="mainTitle">Baby Name Builder</h1>
+        <h1 class="lateFade" id="name">Billy Numbnuts</h1>
+        <h2 class="lateFade unselectable" id="babyOneMoreTime" onmousedown="syntheticName()">Hit me again!</h2>
+    </main>
+</body>
+
+<script src="../JS/autoHead.js"></script>
+<script>
+    function syntheticName(){
+        const fInt = Math.floor(Math.random() * first.length)
+        const sInt = Math.floor(Math.random() * second.length)
+        document.getElementById("name").textContent = `${first[fInt]} ${second[sInt]}`
+    }
+    first = ["Billy", "Joe", "Alistair", "William", "Daniel", "Sam", "Professor", "Mark", "Gertrude", "Garfunkel", "Ferkle", "Euan", "James", "Donald", "Bobgob", "Ronald"]
+    second = ["Jamieson", "McBootlick", "William", "Numbnut", "Clingfilm", "Ballbasher", "Mk I", "Gastroid", "Revell", "Ventricle", "Meemod"]
+    syntheticName()
+</script>

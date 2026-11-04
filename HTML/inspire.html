@@ -21,9 +21,10 @@
 <script src="../JS/autoHead.js"></script>
 
 <script>
-    function writeFunQuote(){
+    function writeFunQuote(fudge = 0){
+        
         const butt = document.getElementById("inspired")
-        const indx = Math.floor(Math.random() * data.length)
+        const indx = (fudge === 0) ? Math.floor(Math.random() * data.length) : fudge
         butt.innerHTML = data[indx];
         console.log(indx)
         if (indx == 20){
@@ -50,6 +51,6 @@
         document.getElementById("babyOneMoreTime").setAttribute("onmousedown", "goodLad()");
         document.getElementById("feelIt").style.display = "none";
     }
-    const data = ["You might matter", "Sam Revell believes in you", "You can probably do this", "You are certainly a thing", "Welcome to my class", "ABCDEFGHIJKLMNOPQRSTUVWXYZ Now I know my ABCs", ":)", ":O", "Insert inspiring quote here", "ERROR: Nobody worth of inspiration found", "Smash that inspire button", "Only 3% of people are inspired", "This website is sponsored by RAID: Shadow legends", "You'll take it from here", "You shouldn't have taken it", "The bests things in life aren't things", "You have me blushing from cheek to cheek (Right face to left butt)", "In redox we trust", "You have a higher than average surface area", "Your happiness increases the standard deviation", "WHICH ONE'S THE REAL ONE?!"];
+    const data = ["You might matter", "Sam Revell believes in you", "You can probably do this", "You are certainly a thing", "Welcome to my class", "ABCDEFGHIJKLMNOPQRSTUVWXYZ Now I know my ABCs", ":)", ":O", "Insert inspiring quote here", "ERROR: Nobody worth of inspiration found", "Smash that inspire button", "Only 3% of people are inspired", "This website is sponsored by RAID: Shadow legends", "You'll take it from here", "You shouldn't have taken it", "The bests things in life aren't things", "You have me blushing from cheek to cheek (Right face to left butt)", "In redox we trust", "You have a higher than average surface area", "Your happiness increases the standard deviation", "WHICH ONE'S THE REAL ONE?!", "You'll be remembered", "Don't - Sun Tzu", "If it's brown, let it mellow", "You could be on a plaxton elite right now", "Count your eggs before they hatch", "WHO PUT ALL MY EGGS IN ONE BASKET!?", "You might energy", "Don't you think about it young man", "Screw you guys, I'm going home", "You are entitled to a lovely new <span id='passport'>bloo</span> passport", "I was born at a young age", "Some fun, some food, it's all in this happy meal", "Are you still watching netflix?", "42", "Loading... Please Wait", "<span style='filter:blur(4px)'>Shit man I forgot my glasses</span>", "Don't stop when you're tired. Stop when you're slippery", "Be like DJ enzyme, always break it down", "Speling iz ovorated", "If you see something that doesn't look right, phone the british transport police on 6106 or tell a member of staff", "What is long and produces white sticky stuff? A gluestick", "<span style='color:yellow; background-color:blue;'>Designer required</span>", "So long and thanks for the fish", "If you feed a man a fish, you feed him for a day but feed him a poisoned fish you feed him for the rest of his life", "Lung is the only organ that can float... Don't ask how we know", "I'm not as think as you drunk as I am", "Fish a fish for a day. You don't catch him. Fish a fish forever and you've wasted your life", "<span id='bigText'>Whoah!</span><br>These quotes are inspirational", "If you're feeling down, get moist", "If you're feeling moist, get down", "The average person is not a penguin", "Muddy people make muddy carpets", "It's the fuzz!", "<span style='color:yellow'>Notice</span>: Please don't read this notice", "FREE WILL<br> He's trapped", "What's better than a scarf? Two scarves", "Proceed with caution", "The local tall men are known to lick tops of heads<br>Continue accordingly"];
     indx = writeFunQuote();
 </script>

@@ -72,3 +72,18 @@ nav ul div li{
 #feelIt {
     display: none;
 }
+
+#passport {
+    color:blue;
+}
+
+#bigText {
+    animation-name: bigTxt;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bigTxt {
+    from {font-size: small;}
+    to {font-size: 75pt;}
+}

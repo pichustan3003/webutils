@@ -10,5 +10,11 @@
         "description":"For when you need a quick pick me up",
         "image":"inspire.png",
         "path":"inspire.html"
-    } 
+    },
+        {
+        "name":"Baby name builder",
+        "description":"For when you spent 9 months procrastinatin'",
+        "image":"baby.png",
+        "path":"baby.html"
+    }
 ]

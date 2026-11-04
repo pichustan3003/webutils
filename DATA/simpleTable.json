@@ -2,7 +2,13 @@
     {
         "name":"Clock",
         "description":"Just a Clock, nothing more",
-        "image":"Clock.png",
+        "image":"clock.png",
         "path":"clock.html"
-    }
+    },
+    {
+        "name":"Inspirational quote synthesiser",
+        "description":"For when you need a quick pick me up",
+        "image":"inspire.png",
+        "path":"inspire.html"
+    } 
 ]

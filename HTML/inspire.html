@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main>
+        <h1 id="mainTitle">Inspirational Quotes</h1>
+        <h1 class="lateFade" id="inspired"></h1>
+        <h2 class="lateFade unselectable" id="babyOneMoreTime" onmousedown="writeFunQuote()">Hit me again!</h2>
+        <h2 class="unselectable" id="feelIt" onmousedown="fuckingIdiot()">Hit me againI</h2>
+    </main>
+</body>
+
+<script src="../JS/autoHead.js"></script>
+
+<script>
+    function writeFunQuote(){
+        const butt = document.getElementById("inspired")
+        const indx = Math.floor(Math.random() * data.length)
+        butt.innerHTML = data[indx];
+        console.log(indx)
+        if (indx == 20){
+            document.getElementById("feelIt").style.display = "inline";
+        } 
+        else {
+            document.getElementById("feelIt").style.display = "none";
+        }
+    }
+
+    function goodLad(){
+        document.getElementsByTagName("body")[0].style.backgroundColor = "black";
+        document.getElementById("inspired").innerHTML = "Good Lad";
+        document.getElementById("babyOneMoreTime").innerHTML = "Hit me again!";
+        document.getElementById("babyOneMoreTime").style.backgroundColor = "";
+        document.getElementById("babyOneMoreTime").setAttribute("onmousedown", "writeFunQuote()");
+    }
+
+    function fuckingIdiot(){
+        document.getElementsByTagName("body")[0].style.backgroundColor = "red";
+        document.getElementById("inspired").innerHTML = "FOOL Now Poop";
+        document.getElementById("babyOneMoreTime").innerHTML = "Poop";
+        document.getElementById("babyOneMoreTime").style.backgroundColor = "brown";
+        document.getElementById("babyOneMoreTime").setAttribute("onmousedown", "goodLad()");
+        document.getElementById("feelIt").style.display = "none";
+    }
+    const data = ["You might matter", "Sam Revell believes in you", "You can probably do this", "You are certainly a thing", "Welcome to my class", "ABCDEFGHIJKLMNOPQRSTUVWXYZ Now I know my ABCs", ":)", ":O", "Insert inspiring quote here", "ERROR: Nobody worth of inspiration found", "Smash that inspire button", "Only 3% of people are inspired", "This website is sponsored by RAID: Shadow legends", "You'll take it from here", "You shouldn't have taken it", "The bests things in life aren't things", "You have me blushing from cheek to cheek (Right face to left butt)", "In redox we trust", "You have a higher than average surface area", "Your happiness increases the standard deviation", "WHICH ONE'S THE REAL ONE?!"];
+    indx = writeFunQuote();
+</script>

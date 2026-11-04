@@ -87,3 +87,7 @@ nav ul div li{
     from {font-size: small;}
     to {font-size: 75pt;}
 }
+
+#name {
+    font-size: 100pt;
+}

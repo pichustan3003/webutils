@@ -1,0 +1,69 @@
+#game {
+    display: none;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+#itemImg {
+    width: 500px;
+    height: 500px;
+}
+
+#itemSect {
+    border: 1px white solid;
+    width: 500px;
+}
+
+#mainTitle {margin: 0; width: 100%;}
+
+#chart {
+    border: 1px white solid;
+    flex: 1;
+}
+
+#price {
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    height: 500px;
+}
+
+#priceTxt {
+    font-size: 200pt;
+    vertical-align: middle;
+    margin: 0;
+    text-align: center;
+}
+
+form >input, form > button {
+    width: 500px;
+    height: 100px;
+    background-color: black;
+    font-size: 50pt;
+}
+
+#determine {
+    font-size: 75pt;
+    display: none;
+}
+
+#over {
+    color: red;
+    font-size: 40pt;
+}
+
+#under {
+    color: greenyellow;
+    font-size: 40pt;
+}
+
+#guessDisplay {
+    display: none;
+    font-size: 70pt;
+    margin: 0;
+}
+
+#info {
+    width: 100%;
+    border: 1px white solid;
+    flex: 1;
+}

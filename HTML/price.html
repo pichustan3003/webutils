@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/price.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main>
+        <div id="priceHome">
+            <h1 id="mainTitle">The price is right!</h1>
+            <h1 class="lateFade">Get as close to you can to the price of this amazon item and not a penny more</h1>
+            <h2 class="lateFade">Prices are in GBP from amazon, prices are not automatically updated but their entry date is specified!</h2>
+            <h2 class="lateFade unselectable" id="babyOneMoreTime" onmousedown="go()">GO!</h2>
+        </div>
+        <div id="game">
+            <div id="itemSect">
+                <h1>Here's your item!</h1>
+                <img id="itemImg" src="">
+                <h2 id="itemName">Item Name</h2>
+                <h3 id="upload">Upload date</h3>
+            </div>
+            <div id="chart">
+                <h1 id="maker">Make your guess!</h1>
+                <div id="price">
+                    <h1 id="priceTxt">£?????</h1>
+                    <h1 id="determine">You were OVER</h1>
+                </div>
+                <form id="gameForm">
+                    <input type="number" id="in" min="0" step="0.01" name="guess" required>
+                    <button type="submit" id="finalAns">Final Answer</button>
+                </form>
+                <h1 id="guessDisplay">£100.00</h1>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="../JS/autoHead.js"></script>
+
+<script>
+    function go() {
+        document.getElementById("priceHome").style.display = "none";
+        document.getElementById("game").style.display = "flex";
+    }
+
+    function increment(target) {
+        return new Promise(resolve => {
+            const element = document.getElementById("priceTxt");
+            const startValue = 0;
+            const duration = 3000;
+            const startTime = performance.now();
+
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+
+                element.textContent = "£"+(startValue + (target - startValue) * progress).toFixed(2);
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = "£"+target.toFixed(2);
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(update);
+        });
+    }
+
+    document.getElementById("gameForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        val = Number(new FormData(this).get("guess"));
+        document.getElementById("gameForm").style.display = "none"
+        document.getElementById("guessDisplay").textContent = "£"+val
+        document.getElementById("guessDisplay").style.display = "block"
+        await increment(price);
+        determine = document.getElementById("determine");
+        determine.style.display = "block";
+
+        if (val > price) {
+            determine.innerHTML = "<span id='over'>You were OVER. You got 0 points and should be ashamed</span>";
+            points += 0
+        }
+        else if (val == price) {
+            determine.innerHTML = "<span id='under'>RIGHT ON THE MONEY!!! Congrats and you gain 100 points</span>";
+            points += 100
+        }
+        else {
+            pts = Math.floor((val/price)*100)
+            determine.innerHTML = `<span id='under'>Decent guess: You gain ${pts} points</span>`;
+            points += pts
+        }
+        document.getElementById("maker").textContent = "You have "+points+" points! Click here for your next item"
+        document.getElementById("maker").setAttribute("onclick", "setupAndRecreate()")
+    });
+
+    function setupAndRecreate(){
+        document.getElementById("gameForm").style.display = "block"
+        document.getElementById("guessDisplay").style.display = "none"
+        document.getElementById("maker").textContent = "Make your guess"
+        document.getElementById("maker").setAttribute("onclick", "")
+        document.getElementById("priceTxt").textContent = "£?????"
+        document.getElementById("gameForm").reset()
+        document.getElementById("determine").style.display = "none"
+        if (data.length == 0){
+            alert("It seems that there is no more unique items left! Sorry, you may now see repeated items")
+            getDataFile()
+        }
+        else{buildGame()}
+    }
+
+    async function getDataFile() {
+        data = await (await fetch("../DATA/prices.json")).json();
+        buildGame();
+    }
+
+    function buildGame() {
+        indx = Math.floor(Math.random() * data.length);
+        item = data[indx];
+        document.getElementById("itemName").innerHTML = item.title;
+        price = item.price;
+        document.getElementById("itemImg").src = item.image;
+        document.getElementById("upload").innerHTML = item.date;
+
+        data.splice(indx, 1);
+    }
+
+    let price;
+    let data;
+    let points = 0;
+    getDataFile();
+</script>
